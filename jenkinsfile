@@ -7,7 +7,7 @@ pipeline {
                 label 'node1'
             }
             steps {
-                // Install Ansible on node1
+                
                 sh 'yum install -y epel-release'
                 sh 'yum install -y ansible'
             }
@@ -18,10 +18,9 @@ pipeline {
                 label 'node1'
             }
             steps {
-                // Copy the Ansible playbook to the node1 agent
-                copyArtifacts(projectName: 'ansible-playbook', target: '.')
+                git 'https://github.com/Gokulrengaraj0704/java_pipeline.git'
 
-                // Run the Ansible playbook
+                
                 sh 'ansible-playbook playbook.yml'
             }
         }

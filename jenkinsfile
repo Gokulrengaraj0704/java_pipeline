@@ -18,7 +18,7 @@ pipeline {
                 label 'node1'
             }
             steps {
-                git 'https://github.com/Gokulrengaraj0704/java_pipeline.git'
+               git credentialsId: 'gg-py' ,url:'https://github.com/Gokulrengaraj0704/java_pipeline.git'
 
                 
                 sh 'ansible-playbook playbook.yml'

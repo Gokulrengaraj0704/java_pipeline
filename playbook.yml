@@ -1,0 +1,23 @@
+- hosts: all
+  tasks:
+    - name: Install Docker
+      yum:
+        name: docker
+        state: present
+
+    - name: Start Docker service
+      systemd:
+        name: docker
+        state: started
+        enabled: yes
+
+    - name: Install Apache/httpd
+      yum:
+        name: httpd
+        state: present
+
+    - name: Start Apache/httpd service
+      systemd:
+        name: httpd
+        state: started
+        enabled: yes
